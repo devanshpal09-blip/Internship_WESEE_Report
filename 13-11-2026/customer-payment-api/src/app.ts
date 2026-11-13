@@ -6,6 +6,14 @@ export function buildApp() {
     logger: true
   });
 
+  app.get("/", async (request, reply) => {
+  return {
+    message: "Customer Payment API is running",
+    status: "success"
+  };
+});
+
+
   // Basic API health check
   app.get("/health", async () => {
     return {
