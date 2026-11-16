@@ -1,5 +1,5 @@
 // ---------- TypeScript types ----------
-export interface Product {
+export interface Car {
   id: string;
   name: string;
   sku: string;
@@ -11,7 +11,7 @@ export interface Product {
   updated_at: string;
 }
 
-export interface CreateProductBody {
+export interface CreateCarBody  {
   name: string;
   sku: string;
   description?: string;
@@ -20,7 +20,7 @@ export interface CreateProductBody {
   is_active?: boolean;
 }
 
-export type UpdateProductBody = Partial<CreateProductBody>;
+export type UpdateCarBody = Partial<CreateCarBody>;
 
 export interface IdParams {
   id: string;
@@ -32,7 +32,7 @@ export interface ListQuery {
 }
 
 // ---------- JSON schemas (validation + serialization) ----------
-const productResponse = {
+const carResponse = {
   type: 'object',
   properties: {
     id: { type: 'string', format: 'uuid' },
@@ -90,12 +90,12 @@ const updateBody = {
   }
 } as const;
 
-export const createProductSchema = {
+export const createCarSchema = {
   body: createBody,
-  response: { 201: productResponse, 409: errorResponse }
+  response: { 201: carResponse, 409: errorResponse }
 };
 
-export const listProductsSchema = {
+export const listCarsSchema = {
   querystring: {
     type: 'object',
     properties: {
@@ -107,7 +107,7 @@ export const listProductsSchema = {
     200: {
       type: 'object',
       properties: {
-        data: { type: 'array', items: productResponse },
+        data: { type: 'array', items: carResponse },
         limit: { type: 'integer' },
         offset: { type: 'integer' }
       }
@@ -115,18 +115,18 @@ export const listProductsSchema = {
   }
 };
 
-export const getProductSchema = {
+export const getCarSchema = {
   params: idParams,
-  response: { 200: productResponse, 404: errorResponse }
+  response: { 200: carResponse, 404: errorResponse }
 };
 
-export const updateProductSchema = {
+export const updateCarSchema = {
   params: idParams,
   body: updateBody,
-  response: { 200: productResponse, 404: errorResponse, 409: errorResponse }
+  response: { 200: carResponse, 404: errorResponse, 409: errorResponse }
 };
 
-export const deleteProductSchema = {
+export const deleteCarSchema = {
   params: idParams,
   response: { 204: { type: 'null' }, 404: errorResponse }
 };
