@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b4386" />
+  <title>Customer Login</title>
+  <link rel="stylesheet" href="../css/login.css" />
+  <script src="../js/login.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="login-card" aria-labelledby="page-title">
+      <div class="user-avatar" aria-hidden="true">
+        <svg viewBox="0 0 100 100" role="img">
+          <circle cx="50" cy="31" r="17"></circle>
+          <path d="M17 83c2-20 15-31 33-31s31 11 33 31z"></path>
+        </svg>
+      </div>
+
+      <h1 id="page-title">CUSTOMER LOGIN</h1>
+
+      <form id="login-form" novalidate>
+        <label class="field">
+          <span class="field-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"></path><path d="m3 6 9 7 9-7"></path></svg>
+          </span>
+          <span class="sr-only">Email ID</span>
+          <input id="email" name="email" type="email" placeholder="Email ID" autocomplete="username" required />
+        </label>
+
+        <label class="field">
+          <span class="field-icon lock-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="12" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><circle cx="12" cy="16" r="1"></circle></svg>
+          </span>
+          <span class="sr-only">Password</span>
+          <input id="password" name="password" type="password" placeholder="Password" autocomplete="current-password" required />
+          <button class="toggle-password" id="toggle-password" type="button" aria-label="Show password">Show</button>
+        </label>
+
+        <div class="form-options">
+          <label class="remember">
+            <input id="remember-me" type="checkbox" checked />
+            <span>Remember me</span>
+          </label>
+          <button class="text-button" id="forgot-link" type="button">Forgot Password?</button>
+        </div>
+
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        <button class="login-button" type="submit" id="login-button">LOGIN</button>
+        <p class="registration-prompt">New customer? <a class="registration-link" href="/pages/registration.html">Create an account</a></p>
+      </form>
+
+      <section id="account-panel" class="account-panel" hidden>
+        <h2>Welcome</h2>
+        <p id="welcome-message"></p>
+        <button class="login-button" id="logout-button" type="button">LOG OUT</button>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="forgot-dialog" class="forgot-dialog">
+    <form method="dialog" id="forgot-form">
+      <h2>Reset password</h2>
+      <p>Enter your email address. If an account exists, reset instructions can be sent.</p>
+      <label for="reset-email">Email address</label>
+      <input id="reset-email" type="email" required placeholder="you@example.com" />
+      <p id="reset-message" class="form-message" role="status"></p>
+      <div class="dialog-actions">
+        <button class="secondary-button" value="cancel">Close</button>
+        <button class="login-button compact" id="reset-submit" type="submit">Continue</button>
+      </div>
+    </form>
+  </dialog>
+
+</body>
+</html>

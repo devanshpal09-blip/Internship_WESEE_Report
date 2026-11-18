@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Century Gothic", "Avenir Next", Avenir, Arial, sans-serif;
+  color: #fff;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 10% 48%, rgba(119, 183, 255, .9), transparent 43%),
+    radial-gradient(ellipse at 78% 8%, rgba(20, 91, 164, .45), transparent 42%),
+    linear-gradient(125deg, #b7d8ff 0%, #4e8fd5 42%, #003875 100%);
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+}
+
+.registration-card {
+  width: min(100%, 460px);
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  background: rgba(0, 48, 105, .25);
+  box-shadow: 0 20px 60px rgba(0, 25, 65, .25);
+}
+
+.back-link,
+.login-prompt a {
+  color: #fff;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 26px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(26px, 5vw, 35px);
+  font-weight: 400;
+  letter-spacing: .08em;
+}
+
+.intro {
+  margin: 12px 0 26px;
+  line-height: 1.5;
+}
+
+label {
+  display: block;
+  margin: 18px 0 8px;
+  font-size: 15px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, .75);
+  border-radius: 5px;
+  padding: 13px;
+  color: #102b49;
+  background: #fff;
+  font: inherit;
+}
+
+input:focus {
+  outline: 3px solid rgba(217, 237, 255, .65);
+  outline-offset: 1px;
+}
+
+button {
+  width: 100%;
+  min-height: 52px;
+  border: 0;
+  color: #fff;
+  background: #064487;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #03366e;
+}
+
+button:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.form-message {
+  min-height: 22px;
+  margin: 18px 0;
+  font-size: 14px;
+}
+
+.form-message.error {
+  color: #ffe1e1;
+}
+
+.form-message.success {
+  color: #e0ffe8;
+}
+
+.login-prompt {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (max-width: 500px) {
+  .registration-card {
+    padding: 26px 20px;
+  }
+}
